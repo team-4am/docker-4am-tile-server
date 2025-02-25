@@ -1,0 +1,15 @@
+FROM node:22.13
+
+WORKDIR /app
+
+COPY tile-server/src/package.json ./
+
+RUN npm install
+
+COPY tile-server/src/ ./
+
+EXPOSE 3000
+
+CMD ["node", "app.mjs"]
+
+

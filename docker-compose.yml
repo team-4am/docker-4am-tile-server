@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  redis:
+    image: redis:latest
+    volumes:
+      - redis-data:/data
+    restart: always
+    networks:
+      - app-network
+
+  app:
+    build:
+      context: .
+      dockerfile: tile-server-Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    volumes:
+      - tile-server:/app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  redis-data:
+  tile-server:
+
+
