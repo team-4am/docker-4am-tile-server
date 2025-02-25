@@ -2,7 +2,7 @@ FROM node:22.13
 
 WORKDIR /app
 
-COPY tile-server/src/package.json ./
+COPY tile-server/package.json ./
 
 RUN npm install
 
