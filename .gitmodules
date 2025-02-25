@@ -1,0 +1,3 @@
+[submodule "tile-server"]
+	path = tile-server
+	url = git@github.com:team-4am/4am-tile-server.git
